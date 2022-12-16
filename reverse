@@ -1,0 +1,67 @@
+struct node
+{
+int data;
+struct node *link;
+};
+struct node *head;
+/*******************Create Node***********************/
+void create_node(int d)
+{
+struct node *cur,*temp;
+cur=(struct node *)malloc(sizeof(struct node));
+cur->data=d;
+cur->link=NULL;
+if(head==NULL)
+        head=cur;
+else
+{
+temp=head;
+while(temp->link!=NULL)
+{
+temp=temp->link;
+}
+temp->link=cur;
+}
+}
+/*******************Print Node***********************/
+
+void print()
+{
+struct node *temp;
+temp=head;
+while(temp!=NULL)
+{
+printf("temp data==%d\taddress==%p\n",temp->data,temp->link);
+temp=temp->link;
+}}
+/*******************Reverse Node***********************/
+
+void reverse()
+{
+struct node *temp,*next,*pre=NULL;
+temp=head;
+while(temp!=NULL)
+{
+next=temp->link;
+temp->link=pre;
+pre=temp;
+temp=next;
+}
+head=pre;
+}
+/*******************Main Function***********************/
+
+void main()
+{
+create_node(10);
+create_node(20);
+create_node(30);
+create_node(40);
+create_node(50);
+create_node(60);
+create_node(70);
+print();
+reverse();
+printf("*******reverse a linked list***********\n");
+print();
+}
