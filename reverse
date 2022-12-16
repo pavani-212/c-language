@@ -1,3 +1,5 @@
+#include<stdio.h>
+#include<coino.h>
 struct node
 {
 int data;
